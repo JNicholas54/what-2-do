@@ -28,7 +28,7 @@
 
       <h4>Step 2: Get your code and exchange for an access token</h4>
       <p>
-        After you're redirected back to eventowl on GitHub, copy the code from
+        After you're redirected back to what-2-do on GitHub, copy the code from
         the URI
       </p>
       <br />
@@ -46,7 +46,7 @@
 
     <script type="text/javascript">
       // --------------------- STEP 1
-      const getURLElement = document.getElementById('getURL');
+      const getAuthUrlButton = document.getElementById('getAuthUrlButton');
       const resultElement = document.getElementById('result');
       const resultLink = document.getElementById('authURL');
       const getAuthURL =
@@ -73,7 +73,7 @@
       const getAccessToken = document.getElementById('getToken');
       const accessTokenElement = document.getElementById('accessToken');
       const getToken =
-        'https://owjx7qagpj.execute-api.us-west-1.amazonaws.com/dev/api/token/{code}';
+        'https://owjx7qagpj.execute-api.us-west-1.amazonaws.com/dev/api/token';
 
       getAccessToken.onclick = function () {
         let code = codeValue.value;

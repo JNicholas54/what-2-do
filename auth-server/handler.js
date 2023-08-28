@@ -15,11 +15,6 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 
 module.exports.getAuthURL = async () => {
-  /**
-   *
-   * Scopes array is passed to the `scope` option.
-   *
-   */
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES,
