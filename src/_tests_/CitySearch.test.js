@@ -3,13 +3,14 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/render-result-naming-convention */
 import { render } from '@testing-library/react';
+import { extractLocations, getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
 import CitySearch from '../components/CitySearch';
 
 describe('<CitySearch /> component', () => {
   let CitySearchComponent;
   beforeEach(() => {
-    CitySearchComponent = render(<CitySearch />);
+    CitySearchComponent = render(<CitySearch allLocations={[]} />);
   });
   test('renders text input', () => {
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
