@@ -21,8 +21,9 @@ describe('<NumberOfEvents /> Component', () => {
   });
 
   test('updates number of events when user types', async () => {
+    const user = userEvent.setup();
     const input = NumberOfEventsComponent.queryByRole('textbox');
-    await userEvent.type(input, '{backspace}{backspace}10');
+    await user.type(input, '{backspace}{backspace}10'); // im using backspace to simulate a user clearing the field and entering a new input which in this case is 10.
     expect(input).toHaveValue('10');
   });
 });
