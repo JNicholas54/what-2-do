@@ -7,6 +7,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 
   useEffect(() => {
     setSuggestions(allLocations);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [`${allLocations}`]);
 
   const handleInputChanged = (event) => {
@@ -24,6 +25,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     const value = event.target.textContent;
     setQuery(value);
     setShowSuggestions(false);
+    setCurrentCity(value);
   };
 
   return (
