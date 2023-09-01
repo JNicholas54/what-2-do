@@ -1,7 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+:root {
+  --color-background: #012e40;
+  --color-text: #d8eff8;
+}
+
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 .App * {
@@ -55,8 +62,9 @@ input[type='number'] {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: var(--color-background);
   cursor: default;
+  transition: filter 0.5s;
 }
 
 .suggestions > li:last-child {
@@ -65,7 +73,7 @@ input[type='number'] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  filter: brightness(1.5);
 }
 
 .event {
@@ -85,4 +93,24 @@ input[type='number'] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+}
+
+.alerts-container {
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  width: 250px;
+  z-index: 1000;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
