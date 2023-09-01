@@ -1,8 +1,10 @@
+/* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/no-render-in-setup */
 import { render } from '@testing-library/react';
 import Event from '../components/Event';
 import mockData from '../mock-data';
+import userEvent from '@testing-library/user-event';
 
 const mockEvent = mockData[0];
 
@@ -30,5 +32,33 @@ describe('<Event /> Component', () => {
   test('has the button "show details"', () => {
     const button = EventComponent.queryByText('Show Details');
     expect(button).toBeInTheDocument();
+  });
+
+  test('by default event details are hidden', () => {
+    const eventDOM = EventComponent.container.firstChild;
+    const details = eventDOM.querySelector('.details');
+    expect(details).not.toBeInTheDocument();
+  });
+
+  test('show details after user clicks button "show details"', async () => {
+    const user = userEvent.setup();
+    const button = EventComponent.queryByText('Show Details');
+    await user.click(button);
+
+    const eventDOM = EventComponent.container.firstChild;
+    const details = eventDOM.querySelector('.details');
+    expect(details).toBeInTheDocument();
+  });
+
+  test('hide details after user clicks button "hide details"', async () => {
+    const button = EventComponent.queryByText('Show Details');
+    const eventDOM = EventComponent.container.firstChild;
+    await userEvent.click(button);
+
+    const hideButton = EventComponent.queryByText('Hide Details');
+    await userEvent.click(hideButton);
+
+    const details = eventDOM.querySelector('.details');
+    expect(details).not.toBeInTheDocument();
   });
 });
