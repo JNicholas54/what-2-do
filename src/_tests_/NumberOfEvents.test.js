@@ -7,7 +7,9 @@ import { render } from '@testing-library/react';
 describe('<NumberOfEvents /> Component', () => {
   let NumberOfEventsComponent;
   beforeEach(() => {
-    NumberOfEventsComponent = render(<NumberOfEvents />);
+    NumberOfEventsComponent = render(
+      <NumberOfEvents setCurrentNOE={() => {}} />
+    );
   });
 
   test('has the input textbox', () => {
