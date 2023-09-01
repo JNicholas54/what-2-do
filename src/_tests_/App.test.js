@@ -55,6 +55,7 @@ describe('<App /> integration', () => {
   });
 
   test('selected number of events by the user are rendered', async () => {
+    const user = userEvent.setup();
     const AppComponent = render(<App />);
     const AppDOM = AppComponent.container.firstChild;
 
@@ -62,7 +63,7 @@ describe('<App /> integration', () => {
     const NumberOfEventsInput =
       within(NumberOfEventsDOM).queryByRole('textbox');
 
-    await userEvent.type(NumberOfEventsInput, '{backspace}{backspace}10');
+    await user.type(NumberOfEventsInput, '{backspace}{backspace}10');
 
     const EventListDOM = AppDOM.querySelector('#event-list');
     const allRenderedEventItems =
