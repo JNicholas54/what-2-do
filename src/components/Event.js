@@ -8,11 +8,11 @@ const Event = ({ event }) => {
       <p>{event.created}</p>
       <p>{event.location}</p>
       <button
+        className='details-btn'
         onClick={() => {
           setShowDetails(!showDetails);
         }}
       >
-        {' '}
         {showDetails ? 'Hide Details' : 'Show Details'}
       </button>
       {showDetails ? (
