@@ -18,25 +18,8 @@ const App = () => {
       currentCity === 'See all cities'
         ? allEvents
         : allEvents.filter((event) => event.location === currentCity);
-
-    // Check if currentNOE is defined and is a number
-    if (typeof currentNOE === 'number' && !isNaN(currentNOE)) {
-      setEvents(filteredEvents.slice(0, currentNOE));
-    } else {
-      // Handle the case when currentNOE is not a valid number
-      console.error('currentNOE is not a valid number:', currentNOE);
-    }
-
+    setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
-
-    // const fetchData = async () => {
-    //   const allEvents = await getEvents();
-    //   const filteredEvents =
-    //     currentCity === 'See all cities'
-    //       ? allEvents
-    //       : allEvents.filter((event) => event.location === currentCity);
-    //   setEvents(filteredEvents.slice(0, currentNOE));
-    //   setAllLocations(extractLocations(allEvents));
   };
 
   useEffect(() => {
