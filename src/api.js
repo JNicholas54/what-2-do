@@ -94,16 +94,12 @@ export const getEvents = async () => {
       'https://owjx7qagpj.execute-api.us-west-1.amazonaws.com/dev/api/get-events' +
       '/' +
       token;
-    try {
-      const response = await fetch(url);
-      const result = await response.json();
-      if (result) {
-        localStorage.setItem('lastEvents', JSON.stringify(result.events));
-        return result.events;
-      } else return null;
-    } catch (error) {
-      alert('failed to get events');
-      console.log(error);
-    }
+
+    const response = await fetch(url);
+    const result = await response.json();
+    if (result) {
+      localStorage.setItem('lastEvents', JSON.stringify(result.events));
+      return result.events;
+    } else return null;
   }
 };
