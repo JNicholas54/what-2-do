@@ -39,6 +39,7 @@ const App = () => {
   return (
     <div className='App'>
       <h1>What-2-Do</h1>
+      <h5>Search for your desired location!</h5>
       <div className='alerts-container'>
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
