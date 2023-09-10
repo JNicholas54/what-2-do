@@ -41,7 +41,7 @@ const CityEventsChart = ({ allLocations, events }) => {
         <XAxis type='category' dataKey='city' name='City' />
         <YAxis
           type='number'
-          dataKey='countnumber'
+          dataKey='count'
           name='Number of events'
           allowDecimals={false}
         />
